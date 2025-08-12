@@ -35,11 +35,6 @@ android {
     }
     buildFeatures {
         viewBinding = true
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.0"
     }
 }
 
@@ -48,23 +43,20 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
-    // Compose essentials
-    implementation(libs.activity.compose)
-    implementation(libs.compose.ui)
-    implementation(libs.compose.material)
-    implementation(libs.compose.tooling.preview)
-    debugImplementation(libs.compose.tooling)
 
     // Lifecycle + ViewModel support
-    implementation(libs.androidx.lifecycle.viewmodel)
-    // implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.2")
+    implementation(libs.lifecycle.viewmodel.ktx)
+
 
     // Navigation for Compose
     // implementation("androidx.navigation:navigation-compose:2.9.3")
-    implementation(libs.androidx.navigation.ui.ktx)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+
 
     // Testing
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    testImplementation("junit:junit:4.13.2")
+
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
